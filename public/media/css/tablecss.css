@@ -136,7 +136,7 @@ background-color: #208bbd; border:1px solid #006391;  -webkit-border-radius: 4px
 .newtablegrid table.grid thead th a { color: #253f51; text-decoration: none; float: left; font-family: 'Roboto Bold'; font-weight:normal; font-size:14px;}
 .newtablegrid table.grid thead th a img { margin-left: 5px; }
 .newtablegrid table.grid thead th a:hover { color: #000000; text-decoration: none; }
-.newtablegrid table.grid tbody tr td { white-space: nowrap;text-align:left;color: #3B3B3B; cursor: default; font-family: 'Roboto Regular'; font-size: 14px; font-weight: normal; min-height: 18px; padding: 5px 6px; /*border-right: 1px solid #DCDCDC;  border-bottom: 1px solid #BBBBBB;*/  overflow: hidden; vertical-align: middle;}
+.newtablegrid table.grid tbody tr td { /*white-space: nowrap;*/ text-align:left;color: #3B3B3B; cursor: default; font-family: 'Roboto Regular'; font-size: 14px; font-weight: normal; min-height: 18px; padding: 5px 6px; /*border-right: 1px solid #DCDCDC;  border-bottom: 1px solid #BBBBBB;*/  overflow: hidden; /*vertical-align: middle;*/}
 .newtablegrid table.grid tbody tr td.no-data-td { background-color: #ffffff !important; text-align: center; }
 
 .newtablegrid table.grid tbody tr td:last-child, table.grid thead th:last-child { border-right: 0px solid #dcdcdc;  }
