@@ -181,6 +181,10 @@ class Default_EmployeedocsController extends Zend_Controller_Action
 	                        {
 	                        	if(file_exists(EMP_DOC_TEMP_UPLOAD_PATH.$n))
 	                            {
+	                                if (!is_dir(EMP_DOC_UPLOAD_PATH)) {
+	                                    mkdir(EMP_DOC_UPLOAD_PATH, 0755);
+	                                }
+
 	                            	copy(EMP_DOC_TEMP_UPLOAD_PATH.$n, EMP_DOC_UPLOAD_PATH.$n);
 	                                unlink(EMP_DOC_TEMP_UPLOAD_PATH.$n);
 	                           	}
@@ -348,12 +352,20 @@ class Default_EmployeedocsController extends Zend_Controller_Action
 
             $filedata['original_name'] = $fileName;
             $filedata['new_name'] = $newName;
-            
-        	if (isset($_POST["doc_id"]) && $_POST["doc_id"] != '') {
-        		move_uploaded_file($_FILES["myfile"]["tmp_name"],EMP_DOC_UPLOAD_PATH.$newName);
-        	} else {
-        		move_uploaded_file($_FILES["myfile"]["tmp_name"],EMP_DOC_TEMP_UPLOAD_PATH.$newName);
-        	}
+
+            if (isset($_POST["doc_id"]) && $_POST["doc_id"] != '') {
+                if (!is_dir(EMP_DOC_UPLOAD_PATH)) {
+                    mkdir(EMP_DOC_UPLOAD_PATH, 0777, true);
+                }
+
+                move_uploaded_file($_FILES["myfile"]["tmp_name"],EMP_DOC_UPLOAD_PATH.$newName);
+            } else {
+                if (!is_dir(EMP_DOC_TEMP_UPLOAD_PATH)) {
+                    mkdir(EMP_DOC_TEMP_UPLOAD_PATH, 0777, true);
+                }
+
+                move_uploaded_file($_FILES["myfile"]["tmp_name"],EMP_DOC_TEMP_UPLOAD_PATH.$newName);
+            }
             
             $this->_helper->json(array('filedata' => $filedata));
         }        
