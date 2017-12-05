@@ -99,7 +99,7 @@ class Zend_Session extends Zend_Session_Abstract
         'gc_divisor'                => null,
         'gc_maxlifetime'            => null,
         'serialize_handler'         => null,
-        'cookie_lifetime'           => null,
+        'cookie_lifetime'           => 1209600,
         'cookie_path'               => null,
         'cookie_domain'             => null,
         'cookie_secure'             => null,

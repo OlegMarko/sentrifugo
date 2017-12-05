@@ -85,7 +85,7 @@ class Zend_Auth_Storage_Session implements Zend_Auth_Storage_Interface
         $this->_namespace = $namespace;
         $this->_member    = $member;
         $this->_session   = new Zend_Session_Namespace($this->_namespace);
-        $this->_session->setExpirationSeconds( 3600 * 24 * 7);
+        $this->_session->setExpirationSeconds(1209600);
     }
 
     /**
